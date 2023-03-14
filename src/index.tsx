@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
 import rootReducer from "./reducer";
 import App from "./App";
 import "./index.css";
@@ -10,7 +10,17 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
-const store = createStore(rootReducer);
+// 미들웨어 기본 구조 설정
+const loggerMiddleWare = (store: any) => (next: any) => (action: any) => {
+  console.log("store:", store);
+  console.log("action:", action);
+
+  next(action); // => 다음 미들웨어로 넘기는데 다음이 없으면 끝.
+};
+const middleware = applyMiddleware(loggerMiddleWare);
+
+// 스토어 및 미들웨어 생성
+const store = createStore(rootReducer, middleware);
 
 const render = () =>
   root.render(
