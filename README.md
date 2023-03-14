@@ -10,6 +10,13 @@
 - Store.Dispatch 
 - Provider
   저장소에 액세스해야하는 모든 중첩구성 요소에서 Redux Store 저장소를 사용 할 수 있도록 해줍니다.
+- useSelector
+  Hooks를 이용해서 스토어의 값을 가져올 수 있습니다.
+  ```jsx
+  import { useSelector } from "react-redux/es/exports";
+  const counter = useSelector((state) => state.counter)
+  ```
+<!-- - use -->
 
 
 #### npm installs
