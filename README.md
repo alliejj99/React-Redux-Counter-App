@@ -40,3 +40,5 @@
   $ npm install redux --save
 - 리덕스 Provider 사용을 위한 라이브러리 설치  
   $ npm install react-redux --save  
+- 비동기 작업(Redux Thunk)를 하기 위해 라이브러리 설치  
+  $ npm install axios --save  
