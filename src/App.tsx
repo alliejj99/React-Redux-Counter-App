@@ -31,7 +31,7 @@ const App = ({ value, onIncrement, onDecrement }: Props) => {
 
   return (
     <div className="App">
-      Clicked: {counters} times
+      <span>Clicked: {counters} times </span>
       <button onClick={onIncrement}>+</button>
       <button onClick={onDecrement}>-</button>
       <ul>
