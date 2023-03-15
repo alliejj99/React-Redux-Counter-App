@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useEffect, useState, useCallback } from "react";
 import { useSelector } from "react-redux/es/exports";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
+import { fetchPost } from "./action/post";
 import { RootState } from "./reducer";
 
 type Props = {
@@ -10,10 +10,18 @@ type Props = {
   onDecrement: () => void;
 };
 
+interface Post {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
 const App = ({ value, onIncrement, onDecrement }: Props) => {
   const dispatch = useDispatch();
   const counters = useSelector((state: RootState) => state.counter);
-  const todos = useSelector((state: RootState) => state.todo);
+  const todos: string[] = useSelector((state: RootState) => state.todo);
+  const posts: Post[] = useSelector((state: RootState) => state.post);
 
   const [todoValue, setTodoValue] = useState("");
 
@@ -30,18 +38,9 @@ const App = ({ value, onIncrement, onDecrement }: Props) => {
     [dispatch, todoValue]
   );
 
-  const fetchPost = useCallback((): any => {
-    return async function fetchPostThunk(dispatch: any, getState: any) {
-      const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/posts"
-      );
-      dispatch({ type: "FETCH_POSTS", payload: response.data });
-    };
-  }, []);
-
   useEffect(() => {
     dispatch(fetchPost());
-  }, [dispatch, fetchPost]);
+  }, [dispatch]);
 
   return (
     <div className="App">
@@ -49,7 +48,7 @@ const App = ({ value, onIncrement, onDecrement }: Props) => {
       <button onClick={onIncrement}>+</button>
       <button onClick={onDecrement}>-</button>
       <ul>
-        {(todos as Array<string>).map((item: any, index: any) => (
+        {todos.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
       </ul>
@@ -57,6 +56,11 @@ const App = ({ value, onIncrement, onDecrement }: Props) => {
         <input type="text" value={todoValue} onChange={handleChange} />
         <input type="submit" />
       </form>
+      <ul>
+        {posts.map((post, index) => (
+          <li key={index}>{post.title}</li>
+        ))}
+      </ul>
     </div>
   );
 };

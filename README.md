@@ -32,8 +32,9 @@
     // foo can be called later to perform the calculation
     // foo is a thunk!
     let foo = () => 1 + 2
-    ```
-
+    ```  
+- #### dispatch  
+  기본적으로 dispatch는 객체를 할당합니다. 때문에 API를 수신하여 받은 데이터를 처리하는 함수는 할당하지 못합니다. 이를 위에서 언급한 Redux-Thunk를 사용하여 허용케 해줄 수 있습니다.
     
 #### npm installs
 - 리덕스 사용을 위한 라이브러리 설치  
