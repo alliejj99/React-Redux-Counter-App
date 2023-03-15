@@ -38,8 +38,8 @@
   기본적으로 dispatch는 객체를 할당합니다. 때문에 API를 수신하여 받은 데이터를 처리하는 함수는 할당하지 못합니다. 이를 위에서 언급한 Redux-Thunk를 사용하여 허용케 해줄 수 있습니다.
 - **Redux Toolkit**  
   리덕스 로직을 작성하기 위한 공식 권장 접근 방식입니다. 리덕스 코어를 둘러싸고 있으며 리덕스 앱을 빌드하는 데 필수적이라고 생각하는 패키지와 기능이 포함되어 있습니다. 리덕스 툴킷은 제안된 모범 사례를 기반으로 하여 대부분의 리덕스 작업을 단순화하고 일반적인 실수를 방지하고 리덕스 애플리케이션을 더 쉽게 작성 할 수 있도록 합니다.  
-  [Documents](https://ko.redux.js.org/redux-toolkit/overview/)
-  [기존 폴더에서 사용방법](https://velog.io/@ih9137/React-Redux-toolkit-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EB%B0%A9%EB%B2%95)
+  [Documents](https://ko.redux.js.org/redux-toolkit/overview/)  
+  [기존 폴더에서 사용방법](https://velog.io/@ih9137/React-Redux-toolkit-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EB%B0%A9%EB%B2%95)  
     
 #### npm installs
 - 리덕스 사용을 위한 라이브러리 설치 
